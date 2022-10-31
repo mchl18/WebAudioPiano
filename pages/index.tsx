@@ -43,7 +43,7 @@ export default function Home() {
     return () => osc.current!.disconnect(audioContext.current!.destination);
   }, [freq]);
 
-  const setWaveForm = (e) => {
+  const setWaveForm = (e: any) => {
     osc.current!.type = e.target.value;
   };
 
