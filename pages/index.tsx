@@ -32,21 +32,6 @@ const OCTAVE = {
   },
 };
 
-const OCTAVE_5 = {
-  C: 261.63,
-  CSharp: 277.18,
-  D: 293.66,
-  DSharp: 311.13,
-  E: 329.63,
-  F: 349.23,
-  FSharp: 369.99,
-  G: 392,
-  GSharp: 415.3,
-  A: 440,
-  ASharp: 466.16,
-  B: 493.88,
-};
-
 export default function Home() {
   const [freq, setFrequency] = useState(0);
   const [octave, setOctave] = useState<4 | 5>(4);
@@ -58,6 +43,22 @@ export default function Home() {
   };
   const osc = useRef<OscillatorNode | null>(null);
   const audioContext = useRef<AudioContext | null>(null);
+  const [isIos, setIsIos] = useState(false);
+
+  const getIsIos = () => {
+    return (
+      [
+        "iPad Simulator",
+        "iPhone Simulator",
+        "iPod Simulator",
+        "iPad",
+        "iPhone",
+        "iPod",
+      ].includes(navigator.platform) ||
+      // iPad on iOS 13 detection
+      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    );
+  };
 
   useEffect(() => {
     const _audioContext = new (window.AudioContext ||
@@ -67,6 +68,7 @@ export default function Home() {
     audioContext.current = _audioContext;
     osc.current.type = "sine";
     osc.current.start();
+    setIsIos(getIsIos());
   }, []);
 
   useEffect(() => {
@@ -99,6 +101,13 @@ export default function Home() {
       </Head>
 
       <main className="px-4 mx-auto max-w-sm">
+        {isIos ? (
+          <div className="alert alert-warning">
+            This does sadly not work on iOS devices
+          </div>
+        ) : (
+          <></>
+        )}
         <h1 className="mt-4 mb-8 text-3xl text-center">WebAudio Synth</h1>
         <div className="relative mx-auto" style={{ width: 350, height: 200 }}>
           <button
