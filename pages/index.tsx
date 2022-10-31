@@ -89,7 +89,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>NextJS Piano</title>
+        <title>WebAudio Synth</title>
         <meta
           name="description"
           content="A little experiment with WebAudio API"
