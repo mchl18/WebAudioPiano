@@ -1,5 +1,7 @@
 # WebAudio Synth
 
+This is an afternoon project demoing how to use [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) within react.
+
 ## Getting Started
 
 First, run the development server:
