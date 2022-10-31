@@ -1,7 +1,38 @@
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 
-const OCTAVE_4 = {
+const OCTAVE = {
+  4: {
+    C: 261.63,
+    CSharp: 277.18,
+    D: 293.66,
+    DSharp: 311.13,
+    E: 329.63,
+    F: 349.23,
+    FSharp: 369.99,
+    G: 392,
+    GSharp: 415.3,
+    A: 440,
+    ASharp: 466.16,
+    B: 493.88,
+  },
+  5: {
+    C: 524.3,
+    CSharp: 554.4,
+    D: 587.3,
+    DSharp: 622.3,
+    E: 659.3,
+    F: 698.5,
+    FSharp: 740,
+    G: 784,
+    GSharp: 830.6,
+    A: 880,
+    ASharp: 932.3,
+    B: 987.8,
+  },
+};
+
+const OCTAVE_5 = {
   C: 261.63,
   CSharp: 277.18,
   D: 293.66,
@@ -18,6 +49,7 @@ const OCTAVE_4 = {
 
 export default function Home() {
   const [freq, setFrequency] = useState(0);
+  const [octave, setOctave] = useState<4 | 5>(4);
   const onPlayPause = (_freq: number) => {
     if (audioContext.current?.state === "suspended") {
       audioContext.current!.resume();
@@ -66,12 +98,12 @@ export default function Home() {
         />
       </Head>
 
-      <main className="px-4 mx-auto max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8o">
+      <main className="px-4 mx-auto max-w-sm">
         <h1 className="mt-4 mb-8 text-3xl text-center">WebAudio Synth</h1>
         <div className="relative mx-auto" style={{ width: 350, height: 200 }}>
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["C"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["C"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -84,7 +116,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["CSharp"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["CSharp"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -98,7 +130,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["D"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["D"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -111,7 +143,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["DSharp"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["DSharp"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -125,7 +157,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["E"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["E"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -138,7 +170,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["F"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["F"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -151,7 +183,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["FSharp"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["FSharp"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -166,7 +198,7 @@ export default function Home() {
 
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["G"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["G"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -180,7 +212,7 @@ export default function Home() {
 
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["GSharp"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["GSharp"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -194,7 +226,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["A"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["A"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -207,7 +239,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["ASharp"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["ASharp"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -221,7 +253,7 @@ export default function Home() {
           </button>
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
-            onMouseDown={() => onPlayPause(OCTAVE_4["B"])}
+            onMouseDown={() => onPlayPause(OCTAVE[octave]["B"])}
             onMouseUp={cancelSound}
             onMouseLeave={cancelSound}
             style={{
@@ -233,15 +265,30 @@ export default function Home() {
             B
           </button>
         </div>
-        <div>
-          <h2 className="mt-8 text-2xl text-center">Waveform</h2>
-          <select className="block mx-auto select" onChange={setWaveForm}>
-            {["sine", "square", "sawtooth", "triangle"].map((value) => (
-              <option key={value} className="uppercase">
-                {value}
-              </option>
-            ))}
-          </select>
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div>
+            <h2 className="mt-8 text-2xl text-center">Waveform</h2>
+            <select
+              className="block mx-auto mt-4 select"
+              onChange={setWaveForm}
+            >
+              {["sine", "square", "sawtooth", "triangle"].map((value) => (
+                <option key={value}>{value.toUpperCase()}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <h2 className="mt-8 text-2xl text-center">Octave</h2>
+
+            <select
+              className="block mx-auto mt-4 select"
+              onChange={(e) => setOctave(+e.target.value as 4 | 5)}
+            >
+              {Object.keys(OCTAVE).map((value) => (
+                <option key={value}>{value.toUpperCase()}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </main>
     </div>
