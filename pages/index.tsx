@@ -44,22 +44,6 @@ export default function Home() {
   };
   const osc = useRef<OscillatorNode | null>(null);
   const audioContext = useRef<AudioContext | null>(null);
-  const [isIos, setIsIos] = useState(false);
-
-  const getIsIos = () => {
-    return (
-      [
-        "iPad Simulator",
-        "iPhone Simulator",
-        "iPod Simulator",
-        "iPad",
-        "iPhone",
-        "iPod",
-      ].includes(navigator.platform) ||
-      // iPad on iOS 13 detection
-      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-    );
-  };
 
   useEffect(() => {
     const _audioContext = new (window.AudioContext ||
@@ -69,7 +53,6 @@ export default function Home() {
     audioContext.current = _audioContext;
     osc.current.type = "sine";
     osc.current.start();
-    setIsIos(getIsIos());
   }, []);
 
   useEffect(() => {
@@ -102,13 +85,6 @@ export default function Home() {
       </Head>
 
       <main className="px-4 mx-auto max-w-sm">
-        {isIos ? (
-          <div className="alert alert-warning">
-            This does sadly not work on iOS devices
-          </div>
-        ) : (
-          <></>
-        )}
         <h1 className="mt-4 mb-8 text-3xl text-center">WebAudio Synth</h1>
         <div className="relative mx-auto" style={{ width: 350, height: 200 }}>
           <button
