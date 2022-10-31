@@ -114,8 +114,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["C"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["C"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
@@ -127,8 +129,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["CSharp"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["CSharp"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 150,
               width: 33,
@@ -141,8 +145,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["D"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["D"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
@@ -154,8 +160,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["DSharp"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["DSharp"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 150,
               width: 33,
@@ -168,8 +176,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["E"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["E"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
@@ -181,8 +191,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["F"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["F"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
@@ -194,8 +206,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["FSharp"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["FSharp"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 150,
               width: 33,
@@ -209,8 +223,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["G"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["G"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
@@ -223,8 +239,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["GSharp"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["GSharp"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 150,
               width: 33,
@@ -237,8 +255,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["A"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["A"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
@@ -250,8 +270,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-black rounded-t-none btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["ASharp"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["ASharp"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 150,
               width: 33,
@@ -264,8 +286,10 @@ export default function Home() {
           <button
             className="flex absolute items-end pb-4 bg-white rounded-t-none hover:bg-white btn"
             onMouseDown={() => onPlay(OCTAVE[octave]["B"])}
+            onTouchStart={() => onPlay(OCTAVE[octave]["B"])}
             onMouseUp={onCancel}
             onMouseLeave={onCancel}
+            onTouchEnd={onCancel}
             style={{
               height: 200,
               width: 50,
